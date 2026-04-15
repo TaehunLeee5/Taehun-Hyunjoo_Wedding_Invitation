@@ -99,14 +99,6 @@
   let isPlaying = false;
   let shouldAutoPlay = false;
 
-  // Load the YouTube IFrame Player API code asynchronously.
-  var tag = document.createElement('script');
-  tag.src = "https://www.youtube.com/iframe_api";
-  var firstScriptTag = document.getElementsByTagName('script')[0];
-  if (firstScriptTag && firstScriptTag.parentNode) {
-    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-  }
-
   window.onYouTubeIframeAPIReady = function() {
     if (typeof CONFIG === 'undefined' || !CONFIG.youtubeBgmId) return;
     

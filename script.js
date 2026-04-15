@@ -10,10 +10,10 @@
   const $$ = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
 
   function formatDate(dateStr) {
-    const d = new Date(dateStr);
-    const year = d.getFullYear();
-    const month = d.getMonth() + 1;
-    const day = d.getDate();
+    // Split the date string manually to avoid UTC parsing issues that shift the date
+    const [year, month, day] = dateStr.split('-').map(Number);
+    // Create Date object in local time so it consistently shows the exact date requested
+    const d = new Date(year, month - 1, day);
     const dayNames = ['일', '월', '화', '수', '목', '금', '토'];
     const dayName = dayNames[d.getDay()];
     return { year, month, day, dayName, date: d };
@@ -113,7 +113,7 @@
     const names = $('.curtain-names', overlay);
     const date = $('.curtain-date', overlay);
     if (names) names.textContent = `${c.groom.nameEn} & ${c.bride.nameEn}`;
-    if (date) date.textContent = `${dateInfo.year}. ${String(dateInfo.month).padStart(2, '0')}. ${String(dateInfo.day).padStart(2, '0')}`;
+    if (date) date.textContent = `${dateInfo.year}.${dateInfo.month}.${dateInfo.day}`;
 
     // 열기 버튼
     const btn = $('#curtain-open-btn');
@@ -199,7 +199,7 @@
 
     const heroDate = $('.hero-date');
     if (heroDate) {
-      heroDate.textContent = `${dateInfo.year}. ${String(dateInfo.month).padStart(2, '0')}. ${String(dateInfo.day).padStart(2, '0')}. ${dateInfo.dayName}요일 ${timeText}`;
+      heroDate.textContent = `${dateInfo.year}.${dateInfo.month}.${dateInfo.day} ${dateInfo.dayName}요일 ${timeText}`;
     }
 
     const heroVenue = $('.hero-venue');

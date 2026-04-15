@@ -94,6 +94,86 @@
     }
   }
 
+  // ── Music Player (YouTube) ──
+  let ytPlayer = null;
+  let isPlaying = false;
+  let shouldAutoPlay = false;
+
+  window.onYouTubeIframeAPIReady = function() {
+    if (typeof CONFIG === 'undefined' || !CONFIG.youtubeBgmId) return;
+    
+    ytPlayer = new YT.Player('youtube-player', {
+      height: '0',
+      width: '0',
+      videoId: CONFIG.youtubeBgmId,
+      playerVars: {
+        'autoplay': 0, // start on user interaction
+        'controls': 0,
+        'disablekb': 1,
+        'loop': 1,
+        'playlist': CONFIG.youtubeBgmId,
+        'playsinline': 1
+      },
+      events: {
+        'onReady': onPlayerReady
+      }
+    });
+  };
+
+  function onPlayerReady(event) {
+    const btnMusic = $('#btn-music');
+    if (btnMusic) {
+      btnMusic.classList.add('visible');
+      btnMusic.addEventListener('click', toggleMusic);
+    }
+    if (!CONFIG.useCurtain || shouldAutoPlay) {
+      playMusic();
+    }
+  }
+
+  function playMusic() {
+    if (ytPlayer && typeof ytPlayer.playVideo === 'function') {
+      ytPlayer.playVideo();
+      isPlaying = true;
+      updateMusicButton();
+    } else {
+      shouldAutoPlay = true;
+    }
+  }
+
+  function pauseMusic() {
+    if (ytPlayer && typeof ytPlayer.pauseVideo === 'function') {
+      ytPlayer.pauseVideo();
+      isPlaying = false;
+      updateMusicButton();
+    }
+  }
+
+  function toggleMusic() {
+    if (isPlaying) {
+      pauseMusic();
+    } else {
+      playMusic();
+    }
+  }
+
+  function updateMusicButton() {
+    const btnMusic = $('#btn-music');
+    if (!btnMusic) return;
+    const iconOn = $('.icon-music-on', btnMusic);
+    const iconOff = $('.icon-music-off', btnMusic);
+    
+    if (isPlaying) {
+      btnMusic.classList.add('playing');
+      if (iconOn) iconOn.style.display = 'block';
+      if (iconOff) iconOff.style.display = 'none';
+    } else {
+      btnMusic.classList.remove('playing');
+      if (iconOn) iconOn.style.display = 'none';
+      if (iconOff) iconOff.style.display = 'block';
+    }
+  }
+
   // ── Curtain / Intro Overlay ──
   function initCurtain(c, dateInfo, timeText) {
     const overlay = $('#curtain-overlay');
@@ -119,6 +199,7 @@
     const btn = $('#curtain-open-btn');
     if (btn) {
       btn.addEventListener('click', () => {
+        playMusic();
         overlay.classList.add('fade-out');
         document.body.style.overflow = '';
         overlay.addEventListener('transitionend', () => {

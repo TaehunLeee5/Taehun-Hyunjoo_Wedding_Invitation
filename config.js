@@ -60,7 +60,6 @@ const CONFIG = {
     title: "우리의 이야기",
     content: "서로의 삶 속에서 깊은 신뢰와 사랑을 쌓아온\n저희 두 사람이 이제 한마음으로\n새로운 여정을 시작하려 합니다."
   },
-  /*
   // ── 오시는 길 ──
   // (mapLinks는 wedding 객체 내에 포함)
   // ── 마음 전하실 곳 ──
@@ -76,7 +75,6 @@ const CONFIG = {
       { role: "어머니", name: "이미자", bank: "OO은행", number: "000-000-000000" }
     ]
   },
-  */
   // ── 링크 공유 시 나타나는 문구 ──
   kakaoShare: {
     jsKey: "",

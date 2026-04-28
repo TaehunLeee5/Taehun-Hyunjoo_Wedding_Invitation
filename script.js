@@ -103,8 +103,8 @@
     if (typeof CONFIG === 'undefined' || !CONFIG.youtubeBgmId) return;
     
     ytPlayer = new YT.Player('youtube-player', {
-      height: '0',
-      width: '0',
+      height: '100',
+      width: '100',
       videoId: CONFIG.youtubeBgmId,
       playerVars: {
         'autoplay': 0, // start on user interaction

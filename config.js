@@ -16,8 +16,7 @@
 
 const CONFIG = {
   // ── 초대장 열기 ──
-  useCurtain: true,  // 초대장 열기 화면 사용 여부 (배경음악 재생을 위해 true 권장)
-  youtubeBgmId: "QgaTQ5-XfMM", // 배경음악 유튜브 ID
+  useCurtain: false,  // 초대장 열기 화면 사용 여부 (true: 사용, false: 바로 본문 표시)
 
   // ── 메인 (히어로) ──
   groom: {
@@ -60,25 +59,27 @@ const CONFIG = {
     title: "우리의 이야기",
     content: "서로의 삶 속에서 깊은 신뢰와 사랑을 쌓아온\n저희 두 사람이 이제 한마음으로\n새로운 여정을 시작하려 합니다."
   },
+
   // ── 오시는 길 ──
   // (mapLinks는 wedding 객체 내에 포함)
   // ── 마음 전하실 곳 ──
   accounts: {
     groom: [
-      { role: "신랑", name: "홍길동", bank: "OO은행", number: "000-000-000000" },
-      { role: "아버지", name: "홍판서", bank: "OO은행", number: "000-000-000000" },
-      { role: "어머니", name: "김순이", bank: "OO은행", number: "000-000-000000" }
+      { role: "신랑", name: "이태훈", bank: "OO은행", number: "000-000-000000" },
+      { role: "아버지", name: "이재기", bank: "OO은행", number: "000-000-000000" },
+      { role: "어머니", name: "최미숙", bank: "OO은행", number: "000-000-000000" }
     ],
     bride: [
-      { role: "신부", name: "김영희", bank: "OO은행", number: "000-000-000000" },
-      { role: "아버지", name: "김철수", bank: "OO은행", number: "000-000-000000" },
-      { role: "어머니", name: "이미자", bank: "OO은행", number: "000-000-000000" }
+      { role: "신부", name: "박현주", bank: "OO은행", number: "000-000-000000" },
+      { role: "아버지", name: "박명준", bank: "OO은행", number: "000-000-000000" },
+      { role: "어머니", name: "신혜진", bank: "OO은행", number: "000-000-000000" }
     ]
   },
+
   // ── 링크 공유 시 나타나는 문구 ──
   kakaoShare: {
     jsKey: "",
     title: "신랑 이태훈&신부 박현주 결혼식에 초대합니다",
-    description: ""
+    description: "2026년 5월 23일 토요일 오후 5시 제주도 씨에스호텔앤리조트"
   }
 };

@@ -636,8 +636,9 @@
     }
 
     if (list) {
-      list.innerHTML = accounts.map(acc =>
-        `<div class="account-item">
+      list.innerHTML = accounts.map(acc => {
+        if (!acc.bank || !acc.number) return '';
+        return `<div class="account-item">
           <div class="account-info">
             <div class="account-role">${acc.role}</div>
             <div class="account-detail">
@@ -646,8 +647,8 @@
             </div>
           </div>
           <button class="btn-copy-account" data-copy="${acc.bank} ${acc.number} ${acc.name}">복사</button>
-        </div>`
-      ).join('');
+        </div>`;
+      }).join('');
 
       $$('.btn-copy-account', list).forEach(btn => {
         btn.addEventListener('click', () => {

@@ -742,6 +742,41 @@ a {
   color: #000;
 }
 
+/* ── Share Section ── */
+.share {
+  background: #fafafa;
+  text-align: center;
+  padding-top: 0;
+}
+
+.btn-kakao-share {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: calc(100% - 40px);
+  max-width: 400px;
+  padding: 16px 20px;
+  background: #FEE500;
+  color: #000000;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 500;
+  margin: 0 auto;
+  transition: opacity 0.2s;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-kakao-share:hover {
+  opacity: 0.9;
+}
+
+.btn-kakao-share svg {
+  width: 20px;
+  height: 20px;
+}
+
 /* ── Footer ── */
 .footer {
   padding: 32px 28px;

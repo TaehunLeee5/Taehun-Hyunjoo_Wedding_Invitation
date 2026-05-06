@@ -78,8 +78,8 @@ const CONFIG = {
 
   // ── 링크 공유 시 나타나는 문구 ──
   kakaoShare: {
-    jsKey: "",
-    title: "신랑 이태훈&신부 박현주 결혼식에 초대합니다",
-    description: "2026년 5월 23일 토요일 오후 5시 제주도 씨에스호텔앤리조트"
+    jsKey: "121ba428e0834e0e9dd501f5f5407a53",
+    title: "태훈🩵현주 결혼합니다",
+    description: "5월 23일 오후 5시, 제주도에서."
   }
 };

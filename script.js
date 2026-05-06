@@ -229,6 +229,7 @@
     buildAccount(c);
     initScrollAnimations();
     initModal();
+    initKakao(c);
 
     // Show loading state for image-dependent sections
     showLoadingState();
@@ -680,6 +681,60 @@
   function reobserveAnimations() {
     if (!scrollObserver) return;
     $$('.fade-in:not(.visible)').forEach(el => scrollObserver.observe(el));
+  }
+
+  // ── Kakao Share ──
+  function initKakao(c) {
+    if (!c.kakaoShare || !window.Kakao) return;
+    
+    const btn = $('#btn-kakao-share');
+    if (!btn) return;
+
+    if (!c.kakaoShare.jsKey) {
+      btn.addEventListener('click', () => {
+        alert('카카오 JavaScript 키가 입력되지 않았습니다.\nconfig.js 파일의 kakaoShare.jsKey를 설정해주세요.');
+      });
+      return;
+    }
+
+    try {
+      if (!Kakao.isInitialized()) {
+        Kakao.init(c.kakaoShare.jsKey);
+      }
+    } catch (e) {
+      console.error('Kakao init failed:', e);
+      return;
+    }
+
+    btn.addEventListener('click', () => {
+      const baseUrl = window.location.href.replace(/#.*$/, '').replace(/\/[^\/]*$/, '/');
+      const imageUrl = baseUrl + 'images/og/1.jpg';
+      const siteUrl = window.location.href;
+
+      Kakao.Share.sendDefault({
+        objectType: 'feed',
+        content: {
+          title: c.kakaoShare.title,
+          description: c.kakaoShare.description,
+          imageUrl: imageUrl,
+          link: {
+            mobileWebUrl: siteUrl,
+            webUrl: siteUrl,
+          },
+          imageWidth: 800,
+          imageHeight: 1200,
+        },
+        buttons: [
+          {
+            title: '청첩장 보기',
+            link: {
+              mobileWebUrl: siteUrl,
+              webUrl: siteUrl,
+            },
+          },
+        ],
+      });
+    });
   }
 
   // ── Init ──

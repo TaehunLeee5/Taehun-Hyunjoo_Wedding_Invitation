@@ -707,9 +707,9 @@
     }
 
     btn.addEventListener('click', () => {
-      const baseUrl = window.location.href.replace(/#.*$/, '').replace(/\/[^\/]*$/, '/');
-      const imageUrl = baseUrl + 'images/og/1.jpg';
-      const siteUrl = window.location.href;
+      // 카카오톡 공유는 반드시 실제 라이브 주소를 사용해야 합니다.
+      const siteUrl = 'https://taehunleee5.github.io/Taehun-Hyunjoo_Wedding_Invitation/';
+      const imageUrl = siteUrl + 'images/og/1.jpg';
 
       Kakao.Share.sendDefault({
         objectType: 'feed',

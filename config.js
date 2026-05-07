@@ -66,7 +66,7 @@ const CONFIG = {
   accounts: {
     description: "축하해 주시는 마음만으로도 감사하며, \n편의를 위해 안내드립니다.",
     groom: [
-      { role: "신랑", name: "이태훈" },
+      { role: "신랑", name: "이태훈", bank: "농협은행", number: "833088-52-048822" },
       { role: "아버지", name: "이재기", bank: "농협은행", number: "833088-52-048822" },
       { role: "어머니", name: "최미숙", bank: "농협은행", number: "801160-52-073165" }
     ],

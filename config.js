@@ -78,7 +78,7 @@ const CONFIG = {
 
   // ── 링크 공유 시 나타나는 문구 ──
   kakaoShare: {
-    jsKey: "56f189404a5874842a4ea5d00dcc171c",
+    jsKey: "2fced17def7cb715950bf8be83f6b367",
     title: "태훈🩵현주 결혼합니다",
     description: "5월 23일 오후 5시, 제주도에서."
   }

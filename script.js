@@ -616,6 +616,12 @@
       if (accountSection) accountSection.style.display = 'none';
       return;
     }
+
+    const descEl = $('#account-description');
+    if (descEl && c.accounts.description) {
+      descEl.innerHTML = c.accounts.description.replace(/\n/g, '<br>');
+    }
+
     buildAccountGroup('groom', c.accounts.groom, `신랑측 계좌번호`);
     buildAccountGroup('bride', c.accounts.bride, `신부측 계좌번호`);
   }

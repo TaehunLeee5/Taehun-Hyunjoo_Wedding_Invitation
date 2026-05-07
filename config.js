@@ -64,7 +64,7 @@ const CONFIG = {
   // (mapLinks는 wedding 객체 내에 포함)
   // ── 마음 전하실 곳 ──
   accounts: {
-    description: "축하해 주시는 마음만으로도 감사하며, \n편의를 위해 안내드립니다.",
+    description: "축하해 주시는 마음만으로도 감사하며, 편의를 위해 안내드립니다.",
     groom: [
       { role: "신랑", name: "이태훈" },
       { role: "아버지", name: "이재기", bank: "농협은행", number: "833088-52-048822" },

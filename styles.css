@@ -647,6 +647,13 @@ a {
   margin-bottom: 32px;
 }
 
+.account-description {
+  font-size: 14px;
+  color: #666;
+  font-weight: 300;
+  margin-top: -16px;
+}
+
 .account-group {
   margin-bottom: 16px;
 }
